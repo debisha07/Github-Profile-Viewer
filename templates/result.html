@@ -1,0 +1,355 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 20% 30%, #03050b, #000000);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      padding: 1.5rem;
+    }
+    .github-card {
+      max-width: 500px;
+      width: 100%;
+      background: #0a0f1a;
+      background: linear-gradient(145deg, #0b1120 0%, #070b14 100%);
+      border-radius: 2rem;
+      padding: 1.8rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(37, 99, 235, 0.2);
+      transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+      backdrop-filter: blur(0px);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+   
+    .github-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 30px 45px -12px rgba(0, 0, 0, 0.7), 0 0 0 2px rgba(59, 130, 246, 0.6), 0 0 20px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.6);
+    }
+
+    
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #1e3a8a;
+      box-shadow: 0 8px 14px -6px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.4);
+      transition: border 0.2s ease;
+    }
+
+    .github-card:hover .avatar {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+
+    .name-title h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #ffffff, #94a3f8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.2rem;
+    }
+
+    .handle {
+      font-size: 0.8rem;
+      color: #6c86a3;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(59, 130, 246, 0.12);
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-weight: 450;
+    }
+
+    /* Bio Section */
+    .bio {
+      background: rgba(0, 20, 40, 0.5);
+      padding: 0.9rem 1rem;
+      border-radius: 1.2rem;
+      margin: 1rem 0 1.2rem 0;
+      border-left: 3px solid #3b82f6;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: #cdd9ff;
+      font-weight: 400;
+      backdrop-filter: blur(2px);
+    }
+
+   
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #080d17;
+      border-radius: 1.2rem;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 1.4rem;
+      border: 1px solid #1e293b;
+      transition: all 0.2s;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #0f1622;
+      padding: 0.45rem 1rem;
+      border-radius: 2rem;
+      flex: 1;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .stat-item i {
+      font-size: 1.2rem;
+      color: #3b82f6;
+    }
+
+    .stat-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #f0f3ff;
+      letter-spacing: -0.2px;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #7e95bb;
+    }
+
+    .info-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.88rem;
+      background: rgba(12, 20, 32, 0.6);
+      padding: 0.6rem 1rem;
+      border-radius: 1rem;
+      transition: background 0.2s ease, transform 0.1s;
+      border: 1px solid #1e2a3a;
+    }
+
+    .info-row:hover {
+      background: #0f1827;
+      border-color: #2c3f66;
+    }
+
+    .info-icon {
+      width: 32px;
+      text-align: center;
+      color: #3b82f6;
+      font-size: 1.1rem;
+    }
+
+    .info-content {
+      flex: 1;
+      color: #e2e8f0;
+      word-break: break-word;
+    }
+
+    .info-content a {
+      color: #60a5fa;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 450;
+    }
+
+    .info-content a:hover {
+      color: #93c5fd;
+      text-decoration: underline;
+    }
+
+  
+    .hireable-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0f2e2c;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #2dd4bf;
+      border: 0.5px solid #2dd4bf40;
+    }
+
+    .hireable-badge i {
+      font-size: 0.7rem;
+      color: #2dd4bf;
+    }
+
+    .not-hireable {
+      background: #2c1a1f;
+      color: #f87171;
+      border-color: #f8717140;
+    }
+
+    .not-hireable i {
+      color: #f87171;
+    }
+
+    
+    hr {
+      margin: 0.7rem 0 1rem;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #1e2f46, #3b82f6, #1e2f46);
+    }
+
+    /* responsive */
+    @media (max-width: 480px) {
+      .github-card {
+        padding: 1.4rem;
+      }
+      .profile-header {
+        gap: 0.8rem;
+      }
+      .avatar {
+        width: 70px;
+        height: 70px;
+      }
+      .name-title h2 {
+        font-size: 1.4rem;
+      }
+      .stats-row {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .stat-item {
+        justify-content: flex-start;
+      }
+      .info-row {
+        padding: 0.5rem 0.8rem;
+        gap: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="github-card">
+  <!-- Profile picture + Name / handle section -->
+  <div class="profile-header">
+    <!-- High-quality avatar image from a stable placeholder service (consistent GitHub-style) -->
+    <img class="avatar" src="{{avatar}}" alt="profile avatar" 
+         onerror="this.src='https://ui-avatars.com/api/?background=1e3a8a&color=fff&name=JM&size=80';">
+    <div class="name-title">
+      <h2>{{name}}</h2>
+      <span class="handle"><i class="fab fa-github" style="font-size: 0.75rem;"></i> {{login_name}}</span>
+    </div>
+  </div>
+
+  <!-- Bio Section -->
+  <div class="bio">
+    <i class="fas fa-quote-left" style="color: #3b82f6; margin-right: 6px; font-size: 0.7rem;"></i> 
+    {% if bio %}
+   {{bio}}
+   {% else %}
+   None 
+   {% endif %}
+  </div>
+
+  <!-- Followers + Public Repos (both required fields displayed elegantly) -->
+  <div class="stats-row">
+    <div class="stat-item">
+      <i class="fas fa-users"></i>
+      <div class="stat-info">
+        <span class="stat-value">{{followers}}</span>
+        <span class="stat-label">FOLLOWERS</span>
+      </div>
+    </div>
+    <div class="stat-item">
+      <i class="fas fa-code-branch"></i>
+      <div class="stat-info">
+        <span class="stat-value">{{public_repo}}</span>
+        <span class="stat-label">PUBLIC REPOS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- detailed info grid: email, hireable, location, blog, company -->
+  <div class="info-grid">
+    <!-- Email -->
+    <div class="info-row">
+      <div class="info-icon"><i class="fas fa-envelope"></i></div>
+      <div class="info-content">{{email}}</div>
+    </div>
+
+    <!-- Hireable (custom badge) -->
+    <div class="info-row">
+      <div class="info-icon"><i class="fas fa-briefcase"></i></div>
+      <div class="info-content">
+        <span class="hireable-badge"><i class="fas fa-check-circle"></i> {{hire}}</span>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div class="info-row">
+      <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="info-content">{{location}}</div>
+    </div>
+
+    <!-- Blog / Website -->
+    <div class="info-row">
+      <div class="info-icon"><i class="fas fa-globe"></i></div>
+      <div class="info-content">
+      {% if blog %}
+       {{blog}}
+      {% else %}
+      None 
+      {%endif%}
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div class="info-row">
+      <div class="info-icon"><i class="fas fa-building"></i></div>
+      <div class="info-content">{{company}}</div>
+    </div>
+  </div>
+  <hr />
+</div>
+
+</body>
+</html>
