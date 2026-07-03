@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  flask_app:
+    build: .
+    container_name: github_profile_viewer
+    image: github-profile-viewer:1.0
+
+    ports:
+      - "8080:5000"
+
+    networks:
+      - app_network
+
+    volumes:
+      - app_logs:/app/logs
+
+    security_opt:
+      - no-new-privileges:true
+
+    read_only: true
+
+    cap_drop:
+      - ALL
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 128M
+
+volumes:
+  app_logs:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge
